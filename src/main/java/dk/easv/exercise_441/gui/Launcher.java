@@ -1,4 +1,4 @@
-package dk.easv.exercise_441;
+package dk.easv.exercise_441.gui;
 
 import javafx.application.Application;
 
