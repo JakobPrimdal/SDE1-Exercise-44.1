@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exercise_441.gui.HelloController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <TextField prefHeight="26.0" prefWidth="474.0" />
+            <Button mnemonicParsing="false" onAction="#onBtnSearch" text="Search" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox prefHeight="411.0" prefWidth="728.0">
+         <children>
+            <SplitPane dividerPositions="0.32453208556149726" prefHeight="433.0" prefWidth="728.0">
+              <items>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Words">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ListView fx:id="lstviewWords">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ListView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="216.0" prefWidth="487.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="Words beginning with 'A'" />
+                                    <ListView fx:id="lstviewAwords" />
+                                    <Button mnemonicParsing="false" onAction="#onBtnSearchForA" text="Search for 'A'">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets right="10.0" />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="183.0" text="Words beginning with 'N'">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ListView fx:id="lstviewNwords">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <Button mnemonicParsing="false" onAction="#onBtnSearchForN" text="Search for 'N'">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <ListView fx:id="lstviewHistory" prefHeight="143.0" prefWidth="466.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ListView>
+                        <Button mnemonicParsing="false" onAction="#onBtnClearHistory" prefHeight="26.0" prefWidth="352.0" text="Clear history">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+      <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="600.0">
+         <children>
+            <Label text="Total word count: " />
+            <Label fx:id="lblWordCount" text="Label">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+            </Label>
+            <Label text="Search result: " />
+            <Label fx:id="lblSearchResult" text="Label" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
