@@ -1,5 +1,6 @@
-package dk.easv.exercise_441.gui;
+package dk.easv.gui;
 
+import dk.easv.bll.WordsLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,6 +21,7 @@ public class HelloViewController {
     @FXML
     private Label lblSearchResult;
 
+    private WordsLogic wordsLogic = new WordsLogic();
 
     @FXML
     private void onBtnSearch(ActionEvent actionEvent) {
