@@ -8,16 +8,16 @@ import java.util.List;
 
 public class WordsData {
     private List<String> words;
-    private final String wordsPath = "C:\\Users\\Jakob\\Documents\\Computer Science\\SDE1\\Exercise 44.1 txt-files\\brit-a-z.txt";
+    private final String wordsFilePath = "C:\\Users\\Jakob\\Documents\\Computer Science\\SDE1\\Exercise 44.1 txt-files\\brit-a-z.txt";
 
-    public WordsData(){
+    public WordsData() {
         words = new ArrayList<>();
     }
 
-    public List<String> getWords(){
+    public List<String> getWords() {
         if(words.isEmpty())
         {
-            try (BufferedReader br = new BufferedReader(new FileReader(wordsPath))){
+            try (BufferedReader br = new BufferedReader(new FileReader(wordsFilePath))){
                 String line;
                 while ((line = br.readLine()) != null){
                     words.add(line);

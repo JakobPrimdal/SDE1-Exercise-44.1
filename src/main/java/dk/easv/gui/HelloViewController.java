@@ -11,6 +11,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloViewController implements Initializable {
@@ -24,7 +26,7 @@ public class HelloViewController implements Initializable {
     @FXML
     private ListView lstviewNwords;
     @FXML
-    private ListView lstviewHistory;
+    private ListView lstviewHistory; // History is not implemented yet
     @FXML
     private Label lblWordCount;
     @FXML
@@ -34,16 +36,24 @@ public class HelloViewController implements Initializable {
     @FXML
     private RadioButton rBtnPartOfWorld;
 
+    private List<String> words = new ArrayList<>();
+
     private WordsLogic wordsLogic = new WordsLogic();
     private SearchLogic searchLogic = new SearchLogic();
+
+    private boolean updateLstview = false;
 
 
     @FXML
     private void onBtnSearch(ActionEvent actionEvent) {
+        if (updateLstview)
+            updateLstviewWords();
+
         if (rBtnWholeWords.isSelected() && !rBtnPartOfWorld.isSelected()){
             if (!txtField.getText().isEmpty()) {
                 searchLogic.getFilteredWords(txtField.getText().toLowerCase(), lstviewWords);
                 lblWordCount.setText(String.valueOf(lstviewWords.getItems().size()));
+
             }
             if(!lstviewWords.getItems().isEmpty()) {
                 lblSearchResult.setText("'"+txtField.getText()+"' was found "+lstviewWords.getItems().size()+" time(s).");
@@ -62,9 +72,7 @@ public class HelloViewController implements Initializable {
 
         }
 
-        if (txtField.getText().isEmpty()) {
-            populateLstviewWords();
-        }
+        updateLstview = true;
     }
 
     @FXML
@@ -83,7 +91,12 @@ public class HelloViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        populateLstviewWords();
+        for(String w : wordsLogic.getWords()){
+            words.add(w);
+            lstviewAwords.getItems().add(w);
+            lstviewNwords.getItems().add(w);
+            lstviewWords.getItems().add(w);
+        }
     }
 
     @FXML
@@ -96,15 +109,17 @@ public class HelloViewController implements Initializable {
         rBtnWholeWords.setSelected(false);
     }
 
-    private void populateLstviewWords(){
-        // Removes items in lstviewWords
-        for(int i = 0; i < lstviewWords.getItems().size(); i++){
-            lstviewWords.getItems().remove(i);
-        }
-        // Adds items to lstviewWords
-        for(String w : wordsLogic.getWords()){
+    private void updateLstviewWords() {
+        // Removes all current items in lstviewWords
+            lstviewWords.getItems().clear();
+
+
+        // Adds all orignal items to lstviewWords
+        for(String w : words){
             lstviewWords.getItems().add(w);
         }
         lblWordCount.setText(String.valueOf(lstviewWords.getItems().size()));
+
     }
+
 }
