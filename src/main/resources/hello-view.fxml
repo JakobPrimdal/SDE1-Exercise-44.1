@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -11,18 +12,35 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.gui.HelloViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="10.0">
-         <children>
-            <TextField prefHeight="26.0" prefWidth="474.0" />
-            <Button mnemonicParsing="false" onAction="#onBtnSearch" text="Search" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <VBox>
          <VBox.margin>
             <Insets bottom="10.0" top="10.0" />
          </VBox.margin>
-      </HBox>
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="txtField" prefHeight="26.0" prefWidth="474.0" />
+                  <Button mnemonicParsing="false" onAction="#onBtnSearch" text="Search" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <RadioButton fx:id="rBtnWholeWords" mnemonicParsing="false" onAction="#radioBtnWholeWords" text="Search for whole words match">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="rBtnPartOfWorld" mnemonicParsing="false" onAction="#radioBtnPartOfWord" text="Search for part of word" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
       <VBox prefHeight="411.0" prefWidth="728.0">
          <children>
             <SplitPane dividerPositions="0.32453208556149726" prefHeight="433.0" prefWidth="728.0">

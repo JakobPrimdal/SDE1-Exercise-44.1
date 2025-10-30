@@ -8,7 +8,7 @@ import java.util.List;
 
 public class WordsData {
     private List<String> words;
-    private final String wordsPath = "\"C:\\Users\\Jakob\\Documents\\Computer Science\\SDE1\\Exercise 44.1 txt-files\\brit-a-z.txt\"";
+    private final String wordsPath = "C:\\Users\\Jakob\\Documents\\Computer Science\\SDE1\\Exercise 44.1 txt-files\\brit-a-z.txt";
 
     public WordsData(){
         words = new ArrayList<>();
